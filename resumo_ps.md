@@ -1,3 +1,9 @@
+TODO:
+- .env
+- createController.ts
+- createService.ts
+
+
 ETAPA 1 – Back-end
 O que você precisará saber:
 • Ler especificações técnicas em inglês e entender requisitos de negócios
