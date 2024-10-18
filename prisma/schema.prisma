@@ -13,6 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model teste {
-  id String @id @map("id")
+//ainda não executado, pode ser que precise da conexão com o db
+model Imagem {
+  id       String   @id @map("id")
+  image    String
+  code     String
+  datetime DateTime
+  type     String
 }

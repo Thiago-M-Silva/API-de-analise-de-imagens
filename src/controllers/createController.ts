@@ -1,17 +1,25 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { CreateServiceClass } from "../services/createService";
-
+import { ImagemBody } from "../interfaces/imageInterface";
+import { ValidateService } from "../services/validateService";
 
 class CreateController {
     async handle(request: FastifyRequest, reply: FastifyReply){
-        //reajustar de acordo com o desafio
-        const {} = request.body as {};
+        const { imagem: ImagemBody } = request.body as { imagem: ImagemBody };
         
-        const createService = new CreateServiceClass()
-        //renomear essa variavel 
-        const imagem = await createService.execute( );
+        let val = new ValidateService();
 
-        reply.send(imagem);
+        if(val.Validate(ImagemBody) === "valido"){
+
+            //TODO: enviar para o gemini
+            
+            const createService = new CreateServiceClass();
+            const imagem = await createService.execute();
+
+            reply.send(imagem);
+        }else if(val.Validate(ImagemBody) === "invalido"){
+            reply.code(400);
+        }
     }
 }
 
