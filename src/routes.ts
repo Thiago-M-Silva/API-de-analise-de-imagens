@@ -11,6 +11,10 @@ import { DeleteController } from "./controllers/deleteController";
 
 export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions) {
 
+    fastify.get("/", async (request: FastifyRequest, reply: FastifyReply) => {
+      return reply.send("teste");
+    });
+    
     fastify.get("/{code}/listar", async (request: FastifyRequest, reply: FastifyReply) => {
         return new ListController().handle(request, reply)
     })

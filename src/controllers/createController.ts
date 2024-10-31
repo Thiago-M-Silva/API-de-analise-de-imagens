@@ -9,7 +9,7 @@ class CreateController {
         
         let val = new ValidateService();
 
-        if(val.Validate(ImagemBody) === "valido"){
+        if(await val.Validate(ImagemBody) === "valido"){
 
             //TODO: enviar para o gemini
             

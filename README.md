@@ -6,8 +6,7 @@
 ## Funcionalidades:
 ## Imagens:
 ## TODO:
-- criar e conectar a um db
-- fazer a consulta ao gemini
+- fazer a consulta ao gemini (continuar https://ai.google.dev/gemini-api/docs/vision?hl=pt-br&lang=node - Verificar o upload de arquivos de imagem e receber metadados)
 - criar o PATCH /confirm
 - criar o GET
 - testar
