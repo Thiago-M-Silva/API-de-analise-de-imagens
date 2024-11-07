@@ -1,13 +1,12 @@
+import { Imagem } from "@prisma/client";
 import prismaClient from "../prisma";
 
-interface CreateProps{
-    //ajustar de acordo com o desafio
-}
-
 class CreateServiceClass {
-    async execute(){
+    async add(imagem: Imagem){
         
-        const armazena = await prismaClient
+        await prismaClient.imagem.create({
+            data: imagem
+        })
 
         return {ok: true}
     }

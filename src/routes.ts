@@ -15,8 +15,10 @@ export async function routes(fastify: FastifyInstance, options: FastifyPluginOpt
       return reply.send("teste");
     });
     
-    fastify.get("/{code}/listar", async (request: FastifyRequest, reply: FastifyReply) => {
-        return new ListController().handle(request, reply)
+    fastify.get("/:code/listar", async (request: FastifyRequest, reply: FastifyReply) => {
+        const {code} = request.params as {code: string}
+        
+        return new ListController().handle(request, reply, code)
     })
     
     fastify.post("/upload", async (request: FastifyRequest, reply: FastifyReply) => {

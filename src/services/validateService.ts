@@ -7,7 +7,7 @@ class ValidateService{
 
     prisma = new PrismaClient()
 
-    Validate(data: ImagemBody){
+    validate(data: ImagemBody){
       if (
         data &&
         typeof data.code === "string" &&
@@ -17,18 +17,18 @@ class ValidateService{
         var base64 =
           /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$/;
         if (base64.test(data.image) && data.type === "WATER" || data.type === "GAS" ) {
-          return this.VerificaObjetoExistente(data);
+          return this.verificaObjetoExistente(data);
         }
       } else {
         return "invalido" 
       }
     }
 
-    //ainda nao fiz o bd
-    async VerificaObjetoExistente(data: ImagemBody) {
-      const objeto = await this.prisma.Imagem.findUnique({
+    //TODO: ajustar o bd
+    async verificaObjetoExistente(data: ImagemBody) {
+      const objeto = await this.prisma.imagem.findUnique({
         where:{
-          code: data.code,
+          id: data.code,
         }
       });
       if(objeto){
